@@ -1,0 +1,9 @@
+// Forms partial - simple placeholder file
+// This is referenced in the main styles.scss import issue
+
+.form-base {
+    // Basic form styling that would be extended
+    input, select, textarea {
+        font-family: inherit;
+    }
+}

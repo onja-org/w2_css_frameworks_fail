@@ -1,0 +1,459 @@
+// ========================================
+// 🟡 SASS DEBUGGING CHALLENGE (60 minutes)
+// ========================================
+//
+// Welcome to the Yellow Submarine Adventures website!
+// This SASS file has both DIAGNOSTIC issues to fix (30 min)
+// and a QUALITATIVE improvement section (30 min).
+//
+// SETUP: The build process is already working! Just run:
+// npm run build:sass (from the main directory)
+//
+// The CSS will compile to css/styles.css automatically.
+//
+// ========================================
+
+// ========== DIAGNOSTIC SECTION (30 minutes) ==========
+// Find and fix 10 SASS issues below
+
+// 🔧 DIAGNOSTIC ISSUE #1: Wrong variable syntax
+// PROBLEM: SASS variables should start with $ not -
+// FIX: Change -primary-yellow to $primary-yellow
+-primary-yellow: #FFD700;
+$submarine-blue: #1E3A8A;
+$ocean-green: #059669;
+$coral-pink: #F472B6;
+$deep-purple: #7C3AED;
+
+// 🔧 DIAGNOSTIC ISSUE #2: Invalid nesting
+// PROBLEM: You can't nest media queries inside selectors like this
+// FIX: Move the media query outside the selector or restructure
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @media (max-width: 768px) {
+        .nested-class {
+            display: none;
+        }
+    }
+}
+
+// 🔧 DIAGNOSTIC ISSUE #3: Missing semicolon in mixin
+// PROBLEM: SASS mixins need semicolons after each property
+// FIX: Add semicolon after "border-radius: 8px"
+@mixin card-style {
+    background: white;
+    border-radius: 8px
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+// 🔧 DIAGNOSTIC ISSUE #4: Wrong mixin usage
+// PROBLEM: Using @include wrong - should be @include not @mixin
+// FIX: Change @mixin to @include
+.voyage-card {
+    @mixin card-style;
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+// 🔧 DIAGNOSTIC ISSUE #5: Undefined variable
+// PROBLEM: Using $underfined--color that doesn't exist
+// FIX: Use one of the defined color variables like $submarine-blue
+.main-header {
+    background: $underfined-color;
+    color: white;
+    padding: 1rem 0;
+
+    .site-title {
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 0;
+    }
+}
+
+// Header navigation
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-nav {
+    display: flex;
+    gap: 2rem;
+
+    .nav-link {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+
+        // 🔧 DIAGNOSTIC ISSUE #6: Wrong ampersand usage
+        // PROBLEM: &--hover should be &:hover for pseudo-classes
+        // FIX: Change &--hover to &:hover
+        &-hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+}
+
+// Hero section
+.hero-section {
+    background: linear-gradient(135deg, $primary-yellow 0%, #FFA500 100%);
+    padding: 4rem 0;
+    text-align: center;
+
+    .hero-title {
+        font-size: 3rem;
+        color: $submarine-blue;
+        margin-bottom: 1rem;
+
+        // 🔧 DIAGNOSTIC ISSUE #7: Invalid selector nesting
+        // PROBLEM: You can't nest regular CSS selectors with & like this
+        // FIX: Remove the & or restructure the nesting properly
+        & + p.subtitle {
+            & + div {
+                & span {
+                    color: red;
+                }
+            }
+        }
+    }
+
+    .hero-description {
+        font-size: 1.2rem;
+        color: $submarine-blue;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+    }
+}
+
+// 🔧 DIAGNOSTIC ISSUE #8: Wrong function syntax
+// PROBLEM: SASS functions use @function not @mixin
+// FIX: Change @mixin to @function
+@mixin calculate-spacing($base: 1rem) {
+    @return $base * 1.5;
+}
+
+// Button styles
+.cta-button {
+    padding: calculate-spacing();
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &.primary {
+        background: $submarine-blue;
+        color: white;
+
+        &:hover {
+            background: darken($submarine-blue, 10%);
+            transform: scale(1.05);
+        }
+    }
+}
+
+// Submarine animation
+.submarine {
+    position: relative;
+    width: 300px;
+    height: 120px;
+    margin: 2rem auto;
+
+    .submarine-body {
+        width: 100%;
+        height: 80px;
+        background: $primary-yellow;
+        border-radius: 40px;
+        position: relative;
+
+        // 🔧 DIAGNOSTIC ISSUE #9: Wrong @extend syntax
+        // PROBLEM: @extend should reference a selector, not a mixin
+        // FIX: Either create a placeholder selector or use @include with mixin
+        @extend calculate-spacing;
+    }
+}
+
+// Voyage cards grid
+.voyage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+// 🔧 DIAGNOSTIC ISSUE #10: Import statement in wrong place
+// PROBLEM: @import should be at the top of the file
+// FIX: Move this import to the top of the file
+@import 'partials/forms';
+
+.voyage-features {
+    list-style: none;
+    padding: 0;
+
+    li {
+        padding: 0.5rem 0;
+
+        &:before {
+            content: "🌊 ";
+            margin-right: 0.5rem;
+        }
+    }
+}
+
+// ========== QUALITATIVE SECTION (30 minutes) ==========
+/*
+🎨 QUALITATIVE CHALLENGE: Yellow Submarine Theming
+
+Your mission: Make this website truly feel like a magical underwater adventure!
+
+Current issues to improve:
+- The color scheme needs more ocean/submarine theming
+- Components should be better organized with mixins and placeholders
+- Add some creative SASS features like loops or custom functions
+- Create a cohesive design system using SASS variables
+- Add submarine-themed hover effects and animations
+
+Goals for this section:
+1. REORGANIZE: Break the code into logical sections with clear comments
+2. IMPROVE COLORS: Create a cohesive underwater/submarine color palette
+3. ADD MIXINS: Create reusable mixins for common patterns
+4. FIX BUTTONS: Notice that some of the buttons are not themed or aren't showing up very well?
+5. ENHANCE INTERACTIONS: Add submarine-themed hover effects
+6. CREATIVE FEATURES: Use SASS loops, functions, or advanced features
+7. EXTRA CHALLENGE: Can you make the submarine look a bit more like a submarine?
+
+Reference the mockup: assets/yellow-submarine-mockup.png
+
+Self-reflection questions:
+- Does the site feel like an underwater adventure?
+- Are the SASS features being used effectively?
+- Is the code well-organized and maintainable?
+- Do the interactions feel magical and engaging?
+- Would other developers find this code easy to understand?
+
+Time estimate: 30 minutes
+Focus on: SASS organization, theming, and creative effects
+*/
+
+// TODO: Improve the crew section styling
+.crew-section {
+    padding: 4rem 0;
+    background: lighten($ocean-green, 40%);
+}
+
+.crew-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.crew-member {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+
+    .crew-avatar {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    .crew-name {
+        color: $submarine-blue;
+        margin-bottom: 0.5rem;
+    }
+
+    .crew-role {
+        color: $ocean-green;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+}
+
+// TODO: Improve the booking form design
+.booking-section {
+    padding: 4rem 0;
+    background: $submarine-blue;
+    color: white;
+}
+
+.booking-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.booking-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    color: $submarine-blue;
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: $submarine-blue;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 1rem;
+
+        &:focus {
+            outline: none;
+            border-color: $primary-yellow;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+        }
+    }
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.form-button {
+    flex: 1;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &.primary {
+        background: $primary-yellow;
+        color: $submarine-blue;
+
+        &:hover {
+            background: darken($primary-yellow, 10%);
+            transform: translateY(-2px);
+        }
+    }
+
+    &.secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+
+        &:hover {
+            background: white;
+            color: $submarine-blue;
+        }
+    }
+}
+
+// Footer
+.main-footer {
+    background: darken($submarine-blue, 10%);
+    color: white;
+    padding: 3rem 0 1rem;
+
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer-title {
+        color: $primary-yellow;
+        margin-bottom: 1rem;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+
+        li {
+            margin: 0.5rem 0;
+        }
+    }
+
+    .footer-link {
+        color: white;
+        text-decoration: none;
+
+        &:hover {
+            color: $primary-yellow;
+        }
+    }
+
+    .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 1rem;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .booking-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/*
+========================================
+🎉 DIAGNOSTIC CHECKLIST - Are you done?
+========================================
+
+Before moving to the qualitative section, fix these issues:
+✅ Issue #1: -primary-yellow → $primary-yellow
+✅ Issue #2: Fix invalid media query nesting
+✅ Issue #3: Add missing semicolon in mixin
+✅ Issue #4: @mixin → @include for mixin usage
+✅ Issue #5: Fix undefined variable $underfined--color
+✅ Issue #6: &--hover → &:hover
+✅ Issue #7: Fix invalid selector nesting
+✅ Issue #8: @mixin → @function for function
+✅ Issue #9: Fix @extend usage
+✅ Issue #10: Move @import to top of file
+
+Run: npm run build:sass (from main directory)
+Test: cd .. && npm run test:sass
+
+Then work on the qualitative improvements!
+========================================
+*/

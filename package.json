@@ -6,12 +6,14 @@
     "test:vanilla": "node 01-vanilla-css/test-diagnostic.js",
     "test:tailwind": "node 02-tailwind/test-diagnostic.js",
     "test:sass": "node 03-sass/test-diagnostic.js",
+    "build:sass": "sass 03-sass/scss/styles.scss 03-sass/css/styles.css --watch",
     "test:all": "npm run test:vanilla && npm run test:tailwind && npm run test:sass"
   },
   "dependencies": {
     "puppeteer": "^21.0.0"
   },
   "devDependencies": {
-    "tailwindcss": "^3.3.0"
+    "tailwindcss": "^3.3.0",
+    "sass": "^1.69.0"
   }
 }
