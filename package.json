@@ -1,7 +1,7 @@
 {
-  "name": "css-sass-debugging-lab",
+  "name": "css-frameworks-debugging-lab",
   "version": "1.0.0",
-  "description": "Multi-section CSS and preprocessor debugging lab",
+  "description": "Multi-section CSS frameworks debugging lab covering vanilla CSS, Tailwind, and SASS",
   "scripts": {
     "test:vanilla": "node 01-vanilla-css/test-diagnostic.js",
     "test:tailwind": "node 02-tailwind/test-diagnostic.js",
