@@ -1,0 +1,313 @@
+/*
+=== VANILLA CSS DEBUGGING CHALLENGE ===
+
+This file has TWO main sections:
+
+🔧 DIAGNOSTIC SECTION (30 minutes) - 10 issues to find and fix
+🎨 QUALITATIVE SECTION (30 minutes) - Layout improvement challenge
+
+Work through the diagnostic fixes first, then move to the qualitative challenge.
+*/
+
+/* ========== DIAGNOSTIC SECTION (30 minutes) ========== */
+/* Find and fix 10 issues in this section. Each issue is described above the relevant CSS. */
+
+/* Basic reset and typography */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, serif;
+  line-height: 1.6;
+  color: #2d3748;
+  background-color: #f7fafc;
+}
+
+/* 🔧 DIAGNOSTIC ISSUE #1: Header background
+   The header should have a green background but appears transparent instead.
+   Something is wrong with the background property. */
+.main-header {
+  bg-color: #48bb78;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+.main-header h1 {
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+/* 🔧 DIAGNOSTIC ISSUE #2: Navigation alignment
+   The navigation links should be spread horizontally across the header,
+   but they're stacking vertically instead. Check the flexbox properties. */
+.main-nav {
+  display: flex;
+  justify-items: center;
+  gap: 2rem;
+}
+
+/* 🔧 DIAGNOSTIC ISSUE #3: Navigation link usability
+   The navigation links are hard to click because the clickable area is too small.
+   They need more space around the text. */
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.main-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 🔧 DIAGNOSTIC ISSUE #4: Crop cards layout
+   The crop cards should display side by side in a row, but they're stacking vertically.
+   The container is missing a crucial layout property. */
+.harvest-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.harvest-section h2 {
+  margin-bottom: 1.5rem;
+  color: #2f855a;
+  text-align: center;
+}
+
+.crop-cards {
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* 🔧 DIAGNOSTIC ISSUE #5: Card spacing
+   The crop cards have uneven spacing that looks broken.
+   Check the margin value - CSS requires proper units for measurements. */
+.crop-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 15;
+}
+
+.crop-card h3 {
+  color: #2f855a;
+  margin-bottom: 0.5rem;
+}
+
+.crop-card p {
+  margin-bottom: 1rem;
+  color: #4a5568;
+}
+
+/* 🔧 DIAGNOSTIC ISSUE #6: Button background color
+   The harvest buttons should be light green but have no background color.
+   Check the property name being used for the background. */
+.harvest-btn {
+  bg-color: #68d391;
+  color: #1a202c;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+/* 🔧 DIAGNOSTIC ISSUE #7: Button hover effect
+   The harvest buttons should turn a darker green when hovered,
+   but it's turning red. There's a specificity conflict here. */
+.harvest-btn:hover {
+  background-color: #48bb78;
+}
+.harvest-btn:hover {
+  background-color: palevioletred;
+}
+
+/* 🔧 DIAGNOSTIC ISSUE #8: Text color visibility
+   Some text appears too light and is hard to read.
+   Check if there are any color values that might be too close to the background. */
+.harvest-section p {
+  color: #f7fafc;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* 🔧 DIAGNOSTIC ISSUE #9: Form fieldset border
+   The volunteer form should have a visible border around it to group the fields,
+   but the border is completely invisible. */
+.volunteer-form fieldset {
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* 🔧 DIAGNOSTIC ISSUE #10: Button width
+   The form submit button should stretch across the full width of the form,
+   but it's only as wide as its text content. */
+.submit-btn {
+  background-color: #48bb78;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+/* ========== QUALITATIVE SECTION (30 minutes) ========== */
+/*
+🎨 QUALITATIVE CHALLENGE: Volunteer Section Improvement
+
+Your task: Make the volunteer registration section match the mockup screenshot
+(see main README). The section should feel professional, welcoming, and easy to use.
+
+Current issues to address:
+- The form and info box should be displayed side by side on larger screens
+- The fake button div should be replaced with a proper, accessible button element
+- The spacing and visual hierarchy need improvement
+- The form needs better organization and visual appeal
+
+Self-reflection questions as you work:
+- Does the form feel easy to scan and complete?
+- Are you using semantic HTML elements appropriately?
+- Does the spacing create a clear visual hierarchy?
+- How accessible is your implementation for keyboard and screen reader users?
+- Does the layout work well on both desktop and mobile?
+
+Reference: See assets/volunteer-section-mockup.png for the target design
+*/
+
+.volunteer-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  margin-top: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.volunteer-section h2 {
+  color: #2f855a;
+  margin-bottom: 1rem;
+}
+
+.volunteer-section > p {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: #4a5568;
+}
+
+.volunteer-form-container {
+  /* TODO: Layout form and info side by side */
+}
+
+.volunteer-form {
+  /* TODO: Improve form styling and spacing */
+}
+
+.volunteer-form legend {
+  font-weight: bold;
+  color: #2f855a;
+  padding: 0 0.5rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d2d6dc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #48bb78;
+  box-shadow: 0 0 0 3px rgba(72, 187, 120, 0.1);
+}
+
+/* TODO: Replace this div with a proper button element for accessibility */
+.fake-button {
+  background-color: #48bb78;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.fake-button:hover {
+  background-color: #38a169;
+}
+
+.volunteer-info {
+  /* TODO: Style this info section to complement the form */
+}
+
+.volunteer-info h3 {
+  color: #2f855a;
+  margin-bottom: 1rem;
+}
+
+.volunteer-info ul {
+  list-style-type: none;
+}
+
+.volunteer-info li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.volunteer-info li:before {
+  content: "🌱 ";
+  margin-right: 0.5rem;
+}
+
+.main-footer {
+  background-color: #2d3748;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .main-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .crop-cards {
+    flex-direction: column;
+  }
+
+  .volunteer-form-container {
+    flex-direction: column;
+  }
+}

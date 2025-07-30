@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greenside Community Garden</title>
+    <link rel="stylesheet" href="broken-styles.css">
+</head>
+<body>
+    <!-- DIAGNOSTIC SECTION - Issues that will be tested -->
+    <header class="main-header">
+        <h1>🌱 Greenside Community Garden</h1>
+        <nav class="main-nav">
+            <a href="#plots">Garden Plots</a>
+            <a href="#events">Events</a>
+            <a href="#resources">Resources</a>
+            <a href="#volunteer">Volunteer</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Diagnostic Challenge: Crop Cards Layout -->
+        <section class="harvest-section">
+            <h2>Current Harvest 🥕</h2>
+            <div class="crop-cards">
+                <div class="crop-card">
+                    <h3>Tomatoes</h3>
+                    <p>Ready for picking! Sweet cherry varieties available.</p>
+                    <button class="harvest-btn">Reserve Picking Slot</button>
+                </div>
+                <div class="crop-card">
+                    <h3>Lettuce</h3>
+                    <p>Fresh greens perfect for salads. Multiple varieties growing.</p>
+                    <button class="harvest-btn">Reserve Picking Slot</button>
+                </div>
+                <div class="crop-card">
+                    <h3>Herbs</h3>
+                    <p>Basil, rosemary, and thyme are flourishing this season.</p>
+                    <button class="harvest-btn">Reserve Picking Slot</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUALITATIVE SECTION - Mockup matching challenge -->
+        <section class="volunteer-section">
+            <h2>Join Our Garden Community! 🌻</h2>
+            <p>Help us maintain our beautiful community space. No experience necessary - we'll teach you everything!</p>
+            
+            <div class="volunteer-form-container">
+                <form class="volunteer-form">
+                    <fieldset>
+                        <legend>Volunteer Registration</legend>
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="availability">When can you help?</label>
+                            <select id="availability" name="availability">
+                                <option value="">Choose your preferred time</option>
+                                <option value="weekday-morning">Weekday Mornings</option>
+                                <option value="weekday-evening">Weekday Evenings</option>
+                                <option value="weekend">Weekends</option>
+                                <option value="flexible">I'm flexible!</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interests">What interests you most?</label>
+                            <textarea id="interests" name="interests" rows="3" placeholder="Planting, weeding, harvesting, teaching kids, event planning..."></textarea>
+                        </div>
+                        
+                        <!-- This should be a proper button, but it's incorrectly implemented -->
+                        <div class="fake-button" onclick="alert('This should be a real button!')">
+                            Sign Me Up!
+                        </div>
+                        
+                        <!-- There's also this submit button that has styling issues -->
+                        <button type="submit" class="submit-btn">Submit Application</button>
+                    </fieldset>
+                </form>
+                
+                <div class="volunteer-info">
+                    <h3>What to Expect</h3>
+                    <ul>
+                        <li>Friendly, supportive community</li>
+                        <li>Learn sustainable gardening practices</li>
+                        <li>Take home fresh produce</li>
+                        <li>Meet your neighbors</li>
+                        <li>Make a positive environmental impact</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2024 Greenside Community Garden | Growing together, naturally</p>
+    </footer>
+</body>
+</html>
