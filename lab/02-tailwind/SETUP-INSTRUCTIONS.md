@@ -18,34 +18,17 @@ cd 02-tailwind
 
 **Check where you are:** Run `pwd` to confirm you're in the right place. You should see something like:
 ```
-/home/onja/labs/css/w2_css_frameworks_fail/02-tailwind
+/home/onja/labs/css/w2_css_frameworks_fail/lab/02-tailwind
 ```
 
 **What's here?** Run `ls` to see the files. You should see:
 - `index.html` (the broken webpage)
 - `SETUP-INSTRUCTIONS.md` (this file)
 
-### 2. Initialize npm (Create package.json)
-Every Tailwind project needs a `package.json` file to manage dependencies.
+### 2. Check Project Dependencies
+The project dependencies (including Tailwind CSS) are already installed in the root directory's `package.json`. You don't need to run `npm init` or `npm install` - the required packages are already available!
 
-```bash
-npm init -y
-```
-
-**What happened?** This command created a `package.json` file. You can check by running `ls` again - you should now see `package.json` in the list.
-
-### 3. Install Tailwind CSS
-Now we need to download and install Tailwind and its dependencies:
-
-```bash
-npm install -D tailwindcss postcss autoprefixer
-```
-
-**This might take a minute!** You'll see lots of text scrolling by as npm downloads the packages. When it's done, you should see:
-- A `node_modules/` folder (run `ls` to check)
-- A `package-lock.json` file
-
-### 4. Generate Tailwind Configuration Files
+### 3. Generate Tailwind Configuration Files
 Tailwind needs configuration files to know how to work:
 
 ```bash
@@ -56,7 +39,7 @@ npx tailwindcss init -p
 
 **Check your work:** Run `ls` - you should now see these new files in your directory.
 
-### 5. Configure Tailwind Content Paths
+### 4. Configure Tailwind Content Paths
 Open `tailwind.config.js` in your code editor. It should look like this:
 
 ```javascript
@@ -81,7 +64,7 @@ This tells Tailwind to scan all HTML files in this directory for utility classes
 
 **Don't forget to save the file!** This is a common reason why things don't work as expected.
 
-### 6. Create Your CSS Input File
+### 5. Create Your CSS Input File
 Create a new file called `src/input.css`:
 
 ```bash
@@ -104,31 +87,20 @@ Open `src/input.css` and add these three essential Tailwind directives:
 - `components`: Pre-built component classes
 - `utilities`: All the utility classes like `bg-amber-900`, `text-3xl`, etc.
 
-### 7. Add Build Script to package.json
-**Important:** Make sure you're editing the `package.json` in the `02-tailwind` directory (not the main lab directory)! 
-
-Open `package.json` and find the `"scripts"` section. Add a build script:
-
-```json
-{
-  "scripts": {
-    "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
-  }
-}
-```
-
-**What does this do?** 
-- `-i ./src/input.css`: Input file (the one with @tailwind directives)
-- `-o ./dist/output.css`: Output file (the compiled CSS)
-- `--watch`: Automatically rebuild when files change
-
-### 8. Build Your CSS
+### 6. Build Your CSS Using Local Tailwind
+Since Tailwind CSS is installed in the root directory, we'll use npx to access it:
 Create the output directory and run the build:
 
 ```bash
 mkdir dist
-npm run build:css
+npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
 ```
+
+**What does this do?** 
+- `npx tailwindcss`: Uses the Tailwind CLI installed in the root directory
+- `-i ./src/input.css`: Input file (the one with @tailwind directives)
+- `-o ./dist/output.css`: Output file (the compiled CSS)
+- `--watch`: Automatically rebuild when files change
 
 **Success!** You should see:
 - A `dist/` folder created
@@ -137,7 +109,7 @@ npm run build:css
 
 **Leave it running!** This command will keep watching for changes. Open a new terminal window/tab for the next steps.
 
-### 9. Link CSS to HTML
+### 7. Link CSS to HTML
 Open `index.html` and find this comment near the top:
 ```html
 <!-- TODO: Link to compiled Tailwind CSS file once build is working -->
@@ -150,7 +122,7 @@ Replace it with:
 
 **Save the HTML file!** Don't forget to save your changes.
 
-### 10. Test Your Setup
+### 8. Test Your Setup
 Open `index.html` in your browser. If everything worked:
 - ✅ The page should have a beautiful amber/brown color scheme
 - ✅ The header should have a dark amber background

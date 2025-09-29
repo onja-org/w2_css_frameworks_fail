@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "description": "Multi-section CSS frameworks debugging lab covering vanilla CSS, Tailwind, and SASS",
   "scripts": {
-    "test:vanilla": "node 01-vanilla-css/test-diagnostic.js",
-    "test:tailwind": "node 02-tailwind/test-diagnostic.js",
-    "test:sass": "node 03-sass/test-diagnostic.js",
-    "build:sass": "sass 03-sass/scss/styles.scss 03-sass/css/styles.css --watch",
+    "test:vanilla": "node lab/01-vanilla-css/test-diagnostic.js",
+    "test:tailwind": "node lab/02-tailwind/test-diagnostic.js",
+    "test:sass": "node lab/03-sass/test-diagnostic.js",
+    "build:sass": "sass lab/03-sass/scss/styles.scss lab/03-sass/css/styles.css --watch",
     "test:all": "npm run test:vanilla && npm run test:tailwind && npm run test:sass"
   },
   "dependencies": {
-    "puppeteer": "^21.0.0"
+    "puppeteer": "^22.8.2"
   },
   "devDependencies": {
     "tailwindcss": "^3.3.0",

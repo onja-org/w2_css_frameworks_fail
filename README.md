@@ -79,9 +79,9 @@ By completing this lab, you will:
 ## Getting Started
 
 ### Quick Start
-1. Navigate to the `lab/` directory
-2. Follow the detailed instructions in `lab/README.md`
-3. Install dependencies with `npm install`
+1. Install dependencies with `npm install` (run from the root directory)
+2. Navigate to the `lab/` directory for the hands-on exercises
+3. Follow the detailed instructions in `lab/README.md`
 4. Work through each section sequentially
 
 ## Learning Outcomes

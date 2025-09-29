@@ -59,17 +59,19 @@ Before beginning, ensure you have:
 ## Setup Instructions
 
 1. **Clone/download** this lab directory (if you haven't already)
-2. **Open terminal** in this lab directory (`/lab`)
-3. **Install dependencies:**
+2. **Install dependencies** by running from the **root directory** (parent of lab/):
    ```bash
+   cd ..
    npm install
+   cd lab
    ```
-4. **Start with Section 1 (Vanilla CSS):**
+   *Note: The package.json is now located in the root directory of the project*
+3. **Start with Section 1 (Vanilla CSS):**
    - Open `01-vanilla-css/broken-styles.css` in your code editor (The instructions are in this file)
-5. **Continue to Section 2 (Tailwind CSS):**
+4. **Continue to Section 2 (Tailwind CSS):**
    - Follow the setup instructions in `02-tailwind/SETUP-INSTRUCTIONS.md`
    - Once you have Tailwind configured, open `02-tailwind/index.html` in your editor -- you will find instructions here. 
-6. **Finish with Section 3 (SASS):**
+5. **Finish with Section 3 (SASS):**
    - Open `03-sass/scss/styles.scss` in your code editor, where you will find instructions.
 
 ## Working Through Each Section
@@ -94,10 +96,10 @@ Before beginning, ensure you have:
 
 ## Testing Your Work
 
-Each section includes automated tests to check your diagnostic fixes:
+Each section includes automated tests to check your diagnostic fixes. **Run these commands from the root directory** (parent of lab/):
 
 ```bash
-# Test individual sections
+# Test individual sections (from root directory)
 npm run test:vanilla
 npm run test:tailwind  
 npm run test:sass
